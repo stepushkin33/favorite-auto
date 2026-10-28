@@ -28,7 +28,7 @@ describe('server-side Favorit gateway', () => {
       key: 'server-key',
       number: 'A&B',
     });
-    expect(fetcher.mock.calls[0][1].redirect).toBe('error');
+    expect(fetcher.mock.calls[0][1].redirect).toBe('manual');
   });
 
   it('adds the selected brand, analogues=on and info=on during stage two', async () => {
@@ -74,7 +74,7 @@ describe('server-side Favorit gateway', () => {
     expect(fetcher).not.toHaveBeenCalled();
   });
 
-  it.each([401, 403, 429, 500])(
+  it.each([302, 401, 403, 429, 500])(
     'handles upstream HTTP %i without forwarding its body',
     async (status) => {
       const gateway = createFavoritGateway({
@@ -86,7 +86,7 @@ describe('server-side Favorit gateway', () => {
           ),
       });
       const result = await gateway(request());
-      expect(result.status).toBe(status === 500 ? 502 : status);
+      expect(result.status).toBe([302, 500].includes(status) ? 502 : status);
       expect(await result.text()).not.toContain('server-key');
     }
   );

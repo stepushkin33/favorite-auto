@@ -58,7 +58,7 @@ export const createFavoritGateway =
       const response = await fetcher(url, {
         headers: { Accept: 'application/json' },
         signal: controller.signal,
-        redirect: 'error',
+        redirect: 'manual',
       });
 
       if (!response.ok)
