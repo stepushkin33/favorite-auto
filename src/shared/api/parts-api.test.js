@@ -1,78 +1,49 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import {
-  createPartsApi,
-  demoPartsApi,
-  parseBrands,
-  parseOffers,
-} from './parts-api';
+import { demoPartsApi } from './demo-parts-api';
+import { createPartsApi } from './parts-api';
 
-const brand = { id: 'vag', name: 'VAG' };
-const offer = {
-  id: 'one',
-  name: 'Масляный фильтр',
+const good = {
+  goodsID: 'good-1',
   brand: 'VAG',
-  price: 0,
-  stock: 0,
+  name: 'Фильтр',
+  number: '06J',
+  count: 3,
+  price: 99999,
+  warehouses: [{ id: 'warehouse-1', code: 'МС2', price: 1200, stock: 3 }],
 };
-
-describe('API response boundary', () => {
-  it('accepts an empty response without inventing data', () => {
-    expect(parseBrands([])).toEqual([]);
-    expect(parseOffers([])).toEqual([]);
-  });
-
-  it('preserves zero prices, zero stock and unknown values', () => {
-    expect(parseOffers([offer])[0]).toMatchObject({ price: 0, stock: 0 });
-    expect(
-      parseOffers([{ ...offer, price: null, stock: null }])[0]
-    ).toMatchObject({ price: null, stock: null });
-  });
-
-  it.each([{}, null, { brands: [brand] }, [null], [brand, brand]])(
-    'rejects an invalid brands payload: %j',
-    (payload) => {
-      expect(() => parseBrands(payload)).toThrow('некорректные данные');
-    }
-  );
-
-  it.each([
-    { price: -1 },
-    { price: '100' },
-    { price: Infinity },
-    { stock: 1.5 },
-    { stock: undefined },
-    { brand: '' },
-  ])('rejects an invalid offer: %j', (override) => {
-    expect(() => parseOffers([{ ...offer, ...override }])).toThrow(
-      'некорректные данные'
-    );
-  });
-
-  it('rejects duplicate offer ids and preserves unclassified offers', () => {
-    expect(() => parseOffers([offer, offer])).toThrow();
-    expect(parseOffers([offer])[0].kind).toBeNull();
-  });
-});
 
 describe('HTTP client', () => {
   afterEach(() => vi.useRealTimers());
 
+  it('requests only the part number during manufacturer search', async () => {
+    const fetcher = vi
+      .fn()
+      .mockResolvedValue(new Response(JSON.stringify({ goods: [good] })));
+    await createPartsApi({ fetcher }).getBrands('01089');
+    expect(
+      Object.fromEntries(new URL(fetcher.mock.calls[0][0]).searchParams)
+    ).toEqual({ number: '01089' });
+  });
+
   it('sends article and selected brand as separately encoded parameters', async () => {
     const fetcher = vi
       .fn()
-      .mockResolvedValue(new Response(JSON.stringify([offer])));
+      .mockResolvedValue(new Response(JSON.stringify({ goods: [good] })));
     const api = createPartsApi({
-      baseUrl: 'https://parts.example/api/',
+      endpoint: 'https://parts.example/api/parts',
       fetcher,
     });
 
     await api.getOffers('A&B / Q', 'MANN & FILTER');
 
     const url = new URL(fetcher.mock.calls[0][0]);
-    expect(url.pathname).toBe('/api/offers');
-    expect(url.searchParams.get('article')).toBe('A&B / Q');
+    expect(url.pathname).toBe('/api/parts');
+    expect(url.searchParams.get('number')).toBe('A&B / Q');
     expect(url.searchParams.get('brand')).toBe('MANN & FILTER');
+    expect(url.searchParams.get('analogues')).toBe('on');
+    expect(url.searchParams.get('info')).toBe('on');
+    expect(url.searchParams.has('key')).toBe(false);
   });
 
   it('treats HTTP 204 as an empty list', async () => {

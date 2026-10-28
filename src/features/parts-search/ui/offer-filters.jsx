@@ -5,7 +5,7 @@ import styles from './offer-table.module.css';
 
 const kindFilters = [
   { value: 'all', label: 'Все предложения' },
-  { value: 'original', label: 'Выбранный бренд' },
+  { value: 'original', label: 'Искомая деталь' },
   { value: 'analog', label: 'Аналоги' },
 ];
 

@@ -14,7 +14,7 @@ export const OfferRow = ({ offer }) => (
           <div className={styles.productBrand}>
             {offer.brand}
             {offer.kind === 'original' && (
-              <span className={styles.originalBadge}>Выбранный бренд</span>
+              <span className={styles.originalBadge}>Искомая деталь</span>
             )}
           </div>
           <span className={styles.productName}>{offer.name}</span>
@@ -23,6 +23,12 @@ export const OfferRow = ({ offer }) => (
     </td>
     <td>
       <span className={styles.article}>{offer.article || 'Не указан'}</span>
+      {offer.warehouse && (
+        <small className={styles.warehouse}>Склад {offer.warehouse}</small>
+      )}
+      {offer.notRefund && (
+        <small className={styles.warehouse}>Без возврата по отказу</small>
+      )}
     </td>
     <td>
       <span

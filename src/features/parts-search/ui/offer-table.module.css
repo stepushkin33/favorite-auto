@@ -177,6 +177,12 @@
   font-size: 11px;
   color: #6f7680;
 }
+.warehouse {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #767d87;
+}
 .stock {
   white-space: nowrap;
   display: inline-flex;

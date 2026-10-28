@@ -9,7 +9,10 @@
   "packageManager": "npm@10.9.3",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
+    "dev:demo": "vite --mode demo --host 127.0.0.1",
+    "build": "vite build && node scripts/build-worker.mjs",
+    "build:demo": "vite build --mode demo && node scripts/build-worker.mjs",
+    "start": "node --env-file-if-exists=.env server/index.js",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
     "test:watch": "vitest",
