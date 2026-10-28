@@ -1,0 +1,95 @@
+.loading {
+  padding: 12px 0;
+}
+.loadingLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.spinner {
+  width: 17px;
+  height: 17px;
+  border: 2px solid #e5e5e5;
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.rows {
+  display: grid;
+  gap: 12px;
+}
+.skeleton {
+  height: 122px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: linear-gradient(100deg, #f7f7f7 25%, #ededed 40%, #f7f7f7 60%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+.rows .skeleton {
+  height: 78px;
+}
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 35px 20px 45px;
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  background: #f4f4f4;
+  border-radius: 18px;
+  color: #81858b;
+  margin-bottom: 18px;
+}
+.errorIcon {
+  color: #c64a31;
+  background: #fff1ec;
+}
+.state h3 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+.state p {
+  max-width: 410px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .skeleton {
+    height: 80px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner,
+  .skeleton {
+    animation: none;
+  }
+}

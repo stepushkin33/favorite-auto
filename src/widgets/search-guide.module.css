@@ -1,0 +1,183 @@
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.guide {
+  background: #eeece7;
+  padding: 26px 25px 22px;
+  border-radius: 13px;
+  scroll-margin-top: 20px;
+}
+.guideIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: 1px solid #dad7cf;
+  background: #f8f6f1;
+  color: #767267;
+  margin-bottom: 19px;
+}
+.guide h2 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+.guide > p {
+  font-size: 12px;
+  color: #8c8982;
+  line-height: 1.75;
+  margin: 12px 0 25px;
+}
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+.steps li {
+  display: flex;
+  gap: 12px;
+  position: relative;
+}
+.steps li:first-child::after {
+  content: '';
+  position: absolute;
+  height: 49px;
+  width: 1px;
+  background: #d7d3ca;
+  left: 12px;
+  top: 30px;
+}
+.steps li > span {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #faf9f6;
+  color: #696a65;
+  border: 1px solid #d8d5cd;
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.steps strong {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+.steps p {
+  margin: 7px 0 0;
+  color: #8d8981;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 26px;
+  border-top: 1px solid #dad7d0;
+  padding-top: 18px;
+}
+.tip svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #9c968b;
+}
+.tip p {
+  font-size: 11px;
+  color: #939087;
+  line-height: 1.65;
+  margin: 0;
+}
+.tip strong {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #65645e;
+}
+.confidence {
+  display: flex;
+  gap: 11px;
+  padding: 0 5px;
+}
+.confidence > svg {
+  flex-shrink: 0;
+  color: #9b9fa4;
+}
+.confidence h3 {
+  font-size: 11px;
+  font-weight: 500;
+  margin: 4px 0 7px;
+  color: #747b84;
+}
+.confidence p {
+  font-size: 10px;
+  line-height: 1.8;
+  color: #a0a4aa;
+  margin: 0;
+}
+.helpLink {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8e949d;
+  font-size: 11px;
+  text-decoration: none;
+  margin: 0 5px;
+}
+.helpLink > svg:last-child {
+  margin-left: auto;
+}
+.helpLink:hover {
+  color: var(--red);
+}
+@media (max-width: 950px) {
+  .aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .guide {
+    grid-row: span 2;
+  }
+  .confidence {
+    padding-top: 15px;
+  }
+  .helpLink {
+    align-self: start;
+  }
+}
+@media (max-width: 640px) {
+  .aside {
+    display: flex;
+    gap: 20px;
+  }
+  .guide {
+    padding: 24px;
+  }
+  .guide > p br,
+  .steps p br {
+    display: none;
+  }
+  .guide h2 {
+    font-size: 22px;
+  }
+  .guide h2 br {
+    display: none;
+  }
+  .confidence {
+    padding: 0 5px;
+  }
+  .helpLink {
+    display: none;
+  }
+}

@@ -1,0 +1,137 @@
+.form {
+  padding: 27px 30px 25px;
+  border-bottom: 1px solid var(--line);
+}
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.demoTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: #817059;
+  background: #f4f0e9;
+  padding: 4px 7px;
+  border-radius: 4px;
+}
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+.fieldRow {
+  display: flex;
+  gap: 12px;
+}
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+  border: 1px solid #d9dce0;
+  border-radius: 9px;
+  height: 54px;
+  padding: 0 16px;
+  color: #8b8d94;
+  background: #fff;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.inputWrap:focus-within {
+  border-color: #8d929a;
+  box-shadow: 0 0 0 3px #eceef1;
+}
+.input {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+  border: 0;
+  outline: none;
+  background: none;
+  letter-spacing: 0.3px;
+}
+.input::placeholder {
+  color: #a0a2a8;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.clear {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: #f1f2f4;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #8b8d94;
+  padding: 0;
+}
+.clear:hover {
+  color: var(--text);
+}
+.submit {
+  min-width: 190px;
+}
+.hint,
+.error {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+.error {
+  color: var(--red);
+}
+.invalid {
+  border-color: var(--red);
+}
+.examples {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.example {
+  color: #555a63;
+  font-size: 12px;
+  background: #f4f5f6;
+  padding: 6px 9px;
+  border: 0;
+  border-radius: 5px;
+  transition: background 0.15s;
+}
+.example:hover {
+  background: #e7e9ed;
+}
+@media (max-width: 640px) {
+  .form {
+    padding: 22px 20px;
+  }
+  .fieldRow {
+    flex-direction: column;
+  }
+  .inputWrap {
+    flex: auto;
+  }
+  .submit {
+    height: 48px;
+  }
+  .hint {
+    max-width: 310px;
+  }
+}

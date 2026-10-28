@@ -1,0 +1,107 @@
+.header {
+  background: white;
+  border-bottom: 1px solid #ededef;
+}
+.inner {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #21232a;
+  text-decoration: none;
+  letter-spacing: -1.7px;
+  font-size: 32px;
+  font-weight: 800;
+}
+.logoDot {
+  color: var(--red);
+  margin-left: -8px;
+}
+.logoIcon {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 10px;
+  background: var(--red);
+  color: white;
+  margin-right: 2px;
+}
+.divider {
+  height: 25px;
+  width: 1px;
+  background: #e7e8eb;
+}
+.nav {
+  display: flex;
+  gap: 30px;
+  height: 100%;
+  align-items: center;
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  font-size: 13px;
+  color: #757982;
+  text-decoration: none;
+  position: relative;
+}
+.nav a:hover {
+  color: var(--red);
+}
+.nav .active {
+  color: var(--text);
+  font-weight: 550;
+}
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--red);
+}
+.tagline {
+  margin-left: auto;
+  color: #9699a0;
+  font-size: 11px;
+}
+@media (max-width: 1000px) {
+  .tagline {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .inner {
+    height: 70px;
+    gap: 20px;
+  }
+  .logo {
+    font-size: 27px;
+  }
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+  }
+  .divider {
+    display: none;
+  }
+  .nav {
+    margin-left: auto;
+    gap: 0;
+  }
+  .nav a {
+    font-size: 11px;
+  }
+  .nav a:last-child {
+    display: none;
+  }
+}
