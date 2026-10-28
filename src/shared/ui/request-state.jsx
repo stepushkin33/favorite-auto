@@ -2,6 +2,34 @@ import { ArrowRight, SearchX, TriangleAlert } from 'lucide-react';
 
 import styles from './request-state.module.css';
 
+const skeletonItems = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
+
+const BrandSkeleton = () => (
+  <div className={styles.card}>
+    <div className={styles.cardHeading}>
+      <span className={`${styles.bone} ${styles.brandName}`} />
+      <span className={`${styles.bone} ${styles.round}`} />
+    </div>
+    <span className={`${styles.bone} ${styles.description}`} />
+    <span className={`${styles.bone} ${styles.shortLine}`} />
+  </div>
+);
+
+const OfferSkeleton = () => (
+  <div className={styles.offer}>
+    <div className={styles.product}>
+      <span className={`${styles.bone} ${styles.thumbnail}`} />
+      <div className={styles.productText}>
+        <span className={`${styles.bone} ${styles.brandName}`} />
+        <span className={`${styles.bone} ${styles.description}`} />
+      </div>
+    </div>
+    <span className={`${styles.bone} ${styles.article}`} />
+    <span className={`${styles.bone} ${styles.stock}`} />
+    <span className={`${styles.bone} ${styles.price}`} />
+  </div>
+);
+
 export const LoadingState = ({ label, variant = 'brands' }) => (
   <div
     aria-busy='true'
@@ -17,9 +45,13 @@ export const LoadingState = ({ label, variant = 'brands' }) => (
       className={variant === 'brands' ? styles.cards : styles.rows}
       aria-hidden='true'
     >
-      {['first', 'second', 'third'].map((id) => (
-        <div className={styles.skeleton} key={id} />
-      ))}
+      {skeletonItems.map((id) =>
+        variant === 'brands' ? (
+          <BrandSkeleton key={id} />
+        ) : (
+          <OfferSkeleton key={id} />
+        )
+      )}
     </div>
   </div>
 );

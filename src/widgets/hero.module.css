@@ -1,6 +1,6 @@
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   min-height: 325px;
   align-items: center;
   gap: 35px;
@@ -58,6 +58,7 @@
 }
 .visual {
   height: 290px;
+  min-width: 0;
   position: relative;
   isolation: isolate;
 }
@@ -79,8 +80,8 @@
 }
 .illustration {
   position: absolute;
-  width: 113%;
-  left: -8%;
+  width: 100%;
+  left: 0;
   top: -22px;
 }
 .illustration svg {
@@ -150,26 +151,19 @@
   color: #92969d;
   font-size: 10px;
 }
-.visualLabel {
-  position: absolute;
-  bottom: -2px;
-  left: 22%;
-  font-size: 8px;
-  letter-spacing: 1.6px;
-  color: #9b9b97;
-}
+
 @media (min-width: 1400px) {
   .hero {
     min-height: 350px;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .hero {
     gap: 8px;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   }
   .copy h1 {
-    font-size: 43px;
+    font-size: clamp(36px, 4.2vw, 43px);
   }
   .eyebrow {
     font-size: 8px;
@@ -198,11 +192,6 @@
     left: 0;
     padding: 8px;
   }
-  .visualLabel {
-    bottom: -8px;
-    left: 10%;
-    font-size: 7px;
-  }
 }
 @media (max-width: 700px) {
   .hero {
@@ -215,7 +204,7 @@
     display: none;
   }
   .copy h1 {
-    font-size: 43px;
+    font-size: clamp(32px, 8.8vw, 43px);
     letter-spacing: -2px;
   }
   .copy p {

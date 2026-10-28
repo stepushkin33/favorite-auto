@@ -95,19 +95,7 @@ select {
   white-space: nowrap;
   border: 0;
 }
-.skip-link {
-  position: absolute;
-  top: -60px;
-  left: 15px;
-  background: #fff;
-  border: 1px solid var(--red);
-  border-radius: 5px;
-  padding: 10px;
-  z-index: 10;
-}
-.skip-link:focus {
-  top: 10px;
-}
+
 @media (min-width: 1500px) {
   .container {
     max-width: 1280px;

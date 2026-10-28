@@ -37,37 +37,9 @@
   width: 1px;
   background: #e7e8eb;
 }
-.nav {
-  display: flex;
-  gap: 30px;
-  height: 100%;
-  align-items: center;
-}
-.nav a {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  height: 100%;
+.sectionName {
   font-size: 13px;
-  color: #757982;
-  text-decoration: none;
-  position: relative;
-}
-.nav a:hover {
-  color: var(--red);
-}
-.nav .active {
   color: var(--text);
-  font-weight: 550;
-}
-.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  background: var(--red);
 }
 .tagline {
   margin-left: auto;
@@ -94,14 +66,8 @@
   .divider {
     display: none;
   }
-  .nav {
+  .sectionName {
     margin-left: auto;
-    gap: 0;
-  }
-  .nav a {
     font-size: 11px;
-  }
-  .nav a:last-child {
-    display: none;
   }
 }

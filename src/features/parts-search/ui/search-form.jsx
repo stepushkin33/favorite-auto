@@ -73,7 +73,7 @@ export const SearchForm = ({ onSearch }) => {
       <p className={invalid ? styles.error : styles.hint} id='article-hint'>
         {invalid
           ? 'Введите артикул от 3 до 64 символов.'
-          : 'Введите номер с упаковки или корпуса детали. Поиск начнётся автоматически.'}
+          : 'Введите номер с упаковки или корпуса детали.'}
       </p>
       {isDemoMode && (
         <div className={styles.examples}>

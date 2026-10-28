@@ -1,4 +1,4 @@
-import { Check, FlaskConical, LockKeyhole } from 'lucide-react';
+import { Check, FlaskConical } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { isDemoMode } from '../../../shared/api/parts-api';
@@ -15,11 +15,7 @@ export const PartsSearch = () => {
   const { retryBrands, retryOffers } = usePartsSearch();
 
   return (
-    <section
-      aria-label='Подбор автозапчастей'
-      className={styles.wrapper}
-      id='search'
-    >
+    <section aria-label='Подбор автозапчастей' className={styles.wrapper}>
       <div className={styles.panel}>
         <div className={styles.steps}>
           <button
@@ -45,21 +41,14 @@ export const PartsSearch = () => {
         <BrandPicker onRetry={retryBrands} />
         <OfferTable onRetry={retryOffers} />
       </div>
-      <div className={styles.note}>
-        {isDemoMode ? (
-          <>
-            <FlaskConical size={14} />
-            <span>
-              Деморежим · Тестовые цены и остатки для знакомства с поиском
-            </span>
-          </>
-        ) : (
-          <>
-            <LockKeyhole size={14} />
-            <span>Данные предоставлены сервисом поиска автозапчастей</span>
-          </>
-        )}
-      </div>
+      {isDemoMode && (
+        <div className={styles.note}>
+          <FlaskConical size={14} />
+          <span>
+            Деморежим · Тестовые цены и остатки для знакомства с поиском
+          </span>
+        </div>
+      )}
     </section>
   );
 };

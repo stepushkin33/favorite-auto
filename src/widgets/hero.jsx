@@ -52,9 +52,6 @@ export const Hero = () => (
           <span>Выбор за вами</span>
         </div>
       </div>
-      <span className={styles.visualLabel}>
-        МАЛЕНЬКАЯ ДЕТАЛЬ. БОЛЬШАЯ РАЗНИЦА.
-      </span>
     </div>
   </section>
 );

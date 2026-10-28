@@ -77,6 +77,12 @@ export const OfferTable = ({ onRetry }) => {
             <caption className='sr-only'>
               Предложения и аналоги для {selectedBrand.name}
             </caption>
+            <colgroup>
+              <col className={styles.productColumn} />
+              <col className={styles.articleColumn} />
+              <col className={styles.stockColumn} />
+              <col className={styles.priceColumn} />
+            </colgroup>
             <thead>
               <tr>
                 <th scope='col'>Производитель / наименование</th>

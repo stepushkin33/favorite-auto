@@ -1,16 +1,10 @@
-import {
-  ArrowUpRight,
-  BadgeCheck,
-  CircleHelp,
-  ScanLine,
-  ShieldCheck,
-} from 'lucide-react';
+import { CircleHelp, ScanLine, ShieldCheck } from 'lucide-react';
 
 import styles from './search-guide.module.css';
 
 export const SearchGuide = () => (
   <aside className={styles.aside}>
-    <section className={styles.guide} id='how-it-works'>
+    <section className={styles.guide}>
       <span className={styles.guideIcon}>
         <ScanLine size={23} strokeWidth={1.5} />
       </span>
@@ -62,10 +56,5 @@ export const SearchGuide = () => (
         </p>
       </div>
     </section>
-    <a className={styles.helpLink} href='#article'>
-      <BadgeCheck size={15} />
-      Начать подбор
-      <ArrowUpRight size={14} />
-    </a>
   </aside>
 );

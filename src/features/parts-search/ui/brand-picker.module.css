@@ -25,7 +25,7 @@
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 .brand {
@@ -55,14 +55,17 @@
 }
 .brandTop {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 4px;
+  gap: 8px;
   width: 100%;
 }
 .wordmark {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.15;
   font-weight: 900;
-  font-size: 23px;
+  font-size: clamp(18px, 2vw, 23px);
   letter-spacing: -1.1px;
   color: #172638;
 }
@@ -94,6 +97,7 @@
   background: var(--red);
 }
 .brandDescription {
+  overflow-wrap: anywhere;
   color: #7d8189;
   font-size: 11px;
   line-height: 1.6;
@@ -121,6 +125,11 @@
   gap: 8px;
   font-size: 12px;
   margin-top: 22px;
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 @media (max-width: 640px) {
   .content {

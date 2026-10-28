@@ -104,14 +104,14 @@ export const PartsIllustration = () => (
         stroke='#60686b'
         strokeOpacity='.5'
       />
-      <path d='M342 112 408 120V155L342 147Z' fill='#e5e6e1' />
-      <path d='M342 112 408 120V130L342 122Z' fill='#e72d26' />
+      <path d='M338 113Q375 122 412 113V153Q375 162 338 153Z' fill='#e5e6e1' />
+      <path d='M338 113Q375 122 412 113V126Q375 135 338 126Z' fill='#e72d26' />
       <path
-        d='M349 135 389 140M349 140 378 144'
+        d='M347 138Q375 144 403 138M347 145Q365 149 383 147'
         stroke='#858b89'
         strokeWidth='2'
       />
-      <path d='M350 116 378 120' stroke='#fff' strokeWidth='2' />
+      <path d='M347 121Q365 124 383 123' stroke='#fff' strokeWidth='2' />
     </g>
     <g transform='rotate(-23 209 222)'>
       <ellipse cx='209' cy='230' rx='98' ry='68' fill='#6e797e' />

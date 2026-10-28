@@ -120,6 +120,7 @@ const searchSlice = createSlice({
     },
     brandsRetried(state) {
       state.selectedBrand = null;
+      state.brands = emptyRequest();
       state.offers = emptyRequest();
     },
   },

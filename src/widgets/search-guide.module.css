@@ -7,7 +7,6 @@
   background: #eeece7;
   padding: 26px 25px 22px;
   border-radius: 13px;
-  scroll-margin-top: 20px;
 }
 .guideIcon {
   display: grid;
@@ -125,35 +124,17 @@
   color: #a0a4aa;
   margin: 0;
 }
-.helpLink {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: #8e949d;
-  font-size: 11px;
-  text-decoration: none;
-  margin: 0 5px;
-}
-.helpLink > svg:last-child {
-  margin-left: auto;
-}
-.helpLink:hover {
-  color: var(--red);
-}
-@media (max-width: 950px) {
+
+@media (max-width: 1100px) {
   .aside {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
   .guide {
-    grid-row: span 2;
   }
   .confidence {
     padding-top: 15px;
-  }
-  .helpLink {
-    align-self: start;
   }
 }
 @media (max-width: 640px) {
@@ -176,8 +157,5 @@
   }
   .confidence {
     padding: 0 5px;
-  }
-  .helpLink {
-    display: none;
   }
 }
